@@ -13,7 +13,7 @@ import MoreIcon from '@material-ui/icons/More';
 
 function Sidebar() {
     return (
-        <div>
+        <div className="sidebar">
             <TwitterIcon className="twitter__icon"/>
             <SidebarItems name="Home" icon={HomeIcon} />
             <SidebarItems name="Explore" icon={SearchIcon} />
@@ -23,7 +23,7 @@ function Sidebar() {
             <SidebarItems name="Lists" icon={ListAltIcon} />
             <SidebarItems name="Profile" icon={PermIdentityIcon} />
             <SidebarItems name="More" icon={MoreIcon} />
-            <a className="tweet__button" >Tweet</a>
+            <a href="#" className="tweet__button" >Tweet</a>
         </div>
     )
 }

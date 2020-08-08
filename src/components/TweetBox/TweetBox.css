@@ -1,0 +1,35 @@
+.tweet__box {
+    width: 100%;
+    padding: 15px;
+    display: flex;
+    border-bottom: 15px solid var(--twitter-selection-background);
+}
+.tweet__box__contents {
+    width: 100%;
+    margin-left: 15px;
+    display: flex;
+    flex-direction: column;
+}
+.tweet__box__attach {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.tweet__box__attach > a {
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    background-color: var(--twitter-blue-secondary);
+    padding: 20px;
+    border-radius: 99px;
+}
+.tweet__box__attach__items {
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+}
+.attach__item {
+    padding-right: 10px;
+    color: var(--twitter-blue-secondary);
+}

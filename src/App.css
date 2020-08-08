@@ -6,7 +6,10 @@
 body {
   /* Global Colors */
   --twitter-blue: #3998ed;
+  --twitter-blue-secondary: #9DC6F3;
   --twitter-selection-background: #ebf4fc;
+
+  
   line-height: 16px;
 }
 .app {

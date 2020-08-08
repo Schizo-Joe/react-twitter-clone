@@ -1,0 +1,9 @@
+.feed {
+    flex: 0.6;
+    position: relative;
+}
+.home__header {
+    position: sticky;
+    padding: 20px;
+    border-bottom: 2px solid var(--twitter-selection-background);
+}
