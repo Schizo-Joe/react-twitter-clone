@@ -1,0 +1,36 @@
+.post {
+    display: flex;
+    margin: 10px 15px;
+    border-bottom: 2px solid var(--twitter-background-selection);
+}
+.post__avatar {
+    margin-right: 15px;
+}
+.post__contents {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.post__contents__names {
+    display: flex;
+    align-items: center;
+
+}
+.account__name {
+    font-weight: 600;
+}
+.verified__icon {
+    padding-left: 5px;
+    padding-right: 5px;
+    color: var(--twitter-blue);
+}
+.user__name {
+
+}
+.post__contents__text {
+    margin-bottom: 10px;
+}
+.post__content__media > img {
+    border-radius: 12px;
+    width: 100%;
+}
