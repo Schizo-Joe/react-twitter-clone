@@ -1,0 +1,16 @@
+.twitter__icon {
+    font-size: 60px;
+    margin: 20px auto 0 20px;
+    color: var(--twitter-blue);
+}
+.tweet__button {
+    text-align: center;
+    display: block;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 20px;
+    text-decoration: none;
+    color: white;
+    background-color: var(--twitter-blue);
+    border-radius: 99px;
+}

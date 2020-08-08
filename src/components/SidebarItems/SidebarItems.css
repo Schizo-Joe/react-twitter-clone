@@ -1,0 +1,18 @@
+.sidebar__items {
+    display: flex;
+    align-items: center;
+    margin: 10px;
+    padding: 10px;
+}
+.sidebar__items:hover {
+    color: var(--twitter-blue);
+    cursor: pointer;
+    border-radius: 99px;
+    background-color: var(--twitter-selection-background);
+    transition: color 0.15s ease-out;
+}
+.sidebar__items > h2 {
+    margin-left: 15px;
+    font-size: 18px;
+    font-weight: 600;
+}
