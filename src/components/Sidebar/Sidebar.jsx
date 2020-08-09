@@ -14,7 +14,7 @@ import MoreIcon from '@material-ui/icons/More';
 function Sidebar() {
     return (
         <div className="sidebar">
-            <TwitterIcon className="twitter__icon"/>
+            <TwitterIcon className="twitter__icon" style={{fontSize: 28}}/>
             <SidebarItems name="Home" icon={HomeIcon} />
             <SidebarItems name="Explore" icon={SearchIcon} />
             <SidebarItems name="Notifications" icon={NotificationsNoneIcon} />
