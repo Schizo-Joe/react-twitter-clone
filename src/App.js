@@ -8,8 +8,10 @@ function App() {
   return (
     <div className="app">
       <Sidebar className="sidebar" />
-      <Feed className="feed"/>
-      <Widgets className="widgets" />
+      <div className="feed__widget__wrapper">
+        <Feed className="feed"/>
+        <Widgets className="widgets" />
+      </div>
     </div>
   );
 }

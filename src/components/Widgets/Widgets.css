@@ -1,8 +1,14 @@
 .widgets {
+    height: 100vh;
+    overflow: scroll;
+    -ms-overflow-style: none; 
+    scrollbar-width: none;
     padding: 0 15px;
-    flex: 0.4;
-    width: auto;
+    width: 40%;
     border-left: 2px solid var(--twitter-selection-background);
+}
+.widgets::-webkit-scrollbar {
+    display: none;
 }
 .widgets__search {
     display: flex;
@@ -16,6 +22,8 @@
     margin: 0 10px;
 }
 .widgets__search > input {
+    outline: none;
+    font-size: 18px;
     border: none;
     height: 30px;
     width: 100%;
@@ -28,4 +36,11 @@
     margin: 20px 15px;
     font-size: 18px;
     font-weight: 800;
+}
+
+
+@media (max-width: 895px) {
+    .widgets {
+        display: none;
+    }
 }

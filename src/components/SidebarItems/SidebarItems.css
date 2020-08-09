@@ -16,3 +16,13 @@
     font-size: 18px;
     font-weight: 600;
 }
+
+@media (max-width: 1090px) {
+    .sidebar__items {
+        margin: 5px 10px;
+    }
+    .sidebar__items__name {
+        display: none;
+    }
+}
+

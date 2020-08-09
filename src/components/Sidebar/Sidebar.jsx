@@ -10,20 +10,22 @@ import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
 import ListAltIcon from '@material-ui/icons/ListAlt';
 import PermIdentityIcon from '@material-ui/icons/PermIdentity';
 import MoreIcon from '@material-ui/icons/More';
+import AddTweet from './tweet.png';
 
 function Sidebar() {
     return (
         <div className="sidebar">
-            <TwitterIcon className="twitter__icon" style={{fontSize: 28}}/>
-            <SidebarItems name="Home" icon={HomeIcon} />
+            <TwitterIcon  className="twitter__icon" style={{fontSize: 28}} />
+            <SidebarItems className="home__icon" name="Home" icon={HomeIcon} />
             <SidebarItems name="Explore" icon={SearchIcon} />
             <SidebarItems name="Notifications" icon={NotificationsNoneIcon} />
             <SidebarItems name="Messages" icon={MailOutlineIcon} />
             <SidebarItems name="Bookmarks" icon={BookmarkBorderIcon} />
             <SidebarItems name="Lists" icon={ListAltIcon} />
             <SidebarItems name="Profile" icon={PermIdentityIcon} />
-            <SidebarItems name="More" icon={MoreIcon} />
+            <SidebarItems class="more__icon" name="More" icon={MoreIcon} />
             <a href="#" className="tweet__button" >Tweet</a>
+            <img className="add__tweet__img" src={AddTweet} alt=""/>
         </div>
     )
 }

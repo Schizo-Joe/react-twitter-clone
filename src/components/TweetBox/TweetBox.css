@@ -1,8 +1,8 @@
 .tweet__box {
     width: 100%;
-    padding: 15px;
+    padding: 10px 15px;
     display: flex;
-    border-bottom: 15px solid var(--twitter-selection-background);
+    border-bottom: 10px solid var(--twitter-selection-background);
 }
 .tweet__box__contents {
     width: 100%;
@@ -10,8 +10,18 @@
     display: flex;
     flex-direction: column;
 }
+.tweet__box__contents > input {
+    padding: 0 5px;
+    border: none;
+    border-radius: 10px;
+    outline: none;
+    height: 50px;
+    font-size: 20px;
+}
+.tweet__box__contents > input::placeholder {
+    font-size: 20px;
+}
 .tweet__box__attach {
-    margin-top: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -21,7 +31,7 @@
     color: white;
     font-weight: 500;
     background-color: var(--twitter-blue-secondary);
-    padding: 20px;
+    padding: 15px 20px;
     border-radius: 99px;
 }
 .tweet__box__attach__items {

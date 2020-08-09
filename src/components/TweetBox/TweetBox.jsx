@@ -16,7 +16,7 @@ function TweetBox() {
       userName: "cristiano",
       verified: true,
       postContent: tweetMessage,
-      postMedia: "https://media.giphy.com/media/v3DdWOdnizRw4/giphy.gif",
+      postMedia: "https://media.giphy.com/media/iDJuQR0UmiqOI/giphy.gif",
     });
     setTweetMessage("");
   };
