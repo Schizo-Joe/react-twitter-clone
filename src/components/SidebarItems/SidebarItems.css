@@ -26,3 +26,23 @@
     }
 }
 
+@media (max-width: 895px) {
+    .more {
+       display: none; 
+    }
+}
+
+@media (max-width: 605px) {
+    .bookmark {
+       display: none; 
+    }
+    .lists {
+        display: none; 
+    }
+    .profile {
+        display: none; 
+    }
+    .main__icons {
+        padding: 10px 20px;
+    }
+}

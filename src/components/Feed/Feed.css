@@ -10,6 +10,8 @@
     display: none;
   }
 .home__header {
+    font-size: 18px;
+    font-weight: 600;
     z-index: 3;
     background-color: white;
     position: sticky;
@@ -21,7 +23,17 @@
 @media (max-width: 895px) {
     .feed {
         width: 100%;
-        margin-left: 10px;
+        margin-left: 20px;
         margin-right: 20px;
+    }
+}
+@media (max-width: 605px) {
+    .feed {
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .home__header {
+        padding: 15px 20px;
     }
 }

@@ -21,11 +21,10 @@
 }
 .verified__icon {
     padding-left: 5px;
-    padding-right: 5px;
     color: var(--twitter-blue);
 }
 .user__name {
-
+    padding-left: 5px;
 }
 .post__contents__text {
     margin-bottom: 10px;

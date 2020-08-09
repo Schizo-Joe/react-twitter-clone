@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import "./TweetBox.css";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import CropOriginalIcon from "@material-ui/icons/CropOriginal";
-import GifIcon from "@material-ui/icons/Gif";
 import EqualizerIcon from "@material-ui/icons/Equalizer";
 import InsertEmoticonIcon from "@material-ui/icons/InsertEmoticon";
 import ScheduleIcon from "@material-ui/icons/Schedule";
@@ -37,7 +36,6 @@ function TweetBox() {
               className="attach__item"
               style={{ fontSize: 36 }}
             />
-            <GifIcon className="attach__item" style={{ fontSize: 36 }} />
             <EqualizerIcon className="attach__item" style={{ fontSize: 36 }} />
             <InsertEmoticonIcon
               className="attach__item"
