@@ -1,5 +1,5 @@
 .widgets {
-    margin: 0 15px;
+    padding: 0 15px;
     flex: 0.4;
     width: auto;
     border-left: 2px solid var(--twitter-selection-background);
@@ -24,9 +24,8 @@
 .widgets__search > input::placeholder {
     font-size: 18px;
 }
-.widgets__contents {
-    margin: 0 10px;
-}
 .widgets__contents > h2 {
     margin: 20px 15px;
+    font-size: 18px;
+    font-weight: 800;
 }
