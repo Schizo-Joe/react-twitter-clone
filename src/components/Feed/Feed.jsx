@@ -3,10 +3,11 @@ import "./Feed.css";
 import TweetBox from "../TweetBox/TweetBox";
 import Post from "../Post/Post";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
-import db from "../../Firebase";
+import firebaseApp from "../../Firebase";
 import FlipMove from "react-flip-move";
 
 function Feed() {
+  const db = firebaseApp.firestore();
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {

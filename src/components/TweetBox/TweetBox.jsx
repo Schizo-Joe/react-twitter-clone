@@ -5,9 +5,15 @@ import CropOriginalIcon from "@material-ui/icons/CropOriginal";
 import EqualizerIcon from "@material-ui/icons/Equalizer";
 import InsertEmoticonIcon from "@material-ui/icons/InsertEmoticon";
 import ScheduleIcon from "@material-ui/icons/Schedule";
-import db from "../../Firebase";
+import firebaseApp from "../../Firebase";
 
 function TweetBox() {
+  const [imageUrlStatus, setImageUrlStatus] = useState(false);
+  const imageUrlBoxhandler = () => {
+    imageUrlStatus ? setImageUrlStatus(false) : setImageUrlStatus(true);
+  }
+
+  const db = firebaseApp.firestore();
   const sendTweet = (e) => {
     e.preventDefault();
     db.collection("posts").add({
@@ -15,11 +21,17 @@ function TweetBox() {
       userName: "cristiano",
       verified: true,
       postContent: tweetMessage,
-      postMedia: "https://media.giphy.com/media/iDJuQR0UmiqOI/giphy.gif",
+      postMedia: imageUrl,
     });
+    console.log(imageUrl);
     setTweetMessage("");
+    setImageUrl("");
+    setImageUrlStatus(false);
   };
+
   const [tweetMessage, setTweetMessage] = useState("");
+  const [imageUrl, setImageUrl] = useState("")
+
   return (
     <div className="tweet__box">
       <AccountCircleIcon style={{fontSize: 55}}/>
@@ -30,11 +42,15 @@ function TweetBox() {
           onChange={(e) => setTweetMessage(e.target.value)}
           value={tweetMessage}
         />
+        { imageUrlStatus &&
+          <input onChange={(e) => setImageUrl(e.target.value)} value={imageUrl} placeholder="Paste the image/GIF url here" className="image__media__input" type="text"/>
+        }
         <div className="tweet__box__attach">
           <div className="tweet__box__attach__items">
             <CropOriginalIcon
               className="attach__item"
               style={{ fontSize: 36 }}
+              onClick={imageUrlBoxhandler}
             />
             <EqualizerIcon className="attach__item" style={{ fontSize: 36 }} />
             <InsertEmoticonIcon
