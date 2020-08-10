@@ -1,17 +1,17 @@
-* {
+/** {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 body {
-  /* Global Colors */
+  /* Global Colors *//*
   --twitter-blue: #3998ed;
   --twitter-blue-secondary: #9DC6F3;
   --twitter-selection-background: #ebf4fc;
 
   
   line-height: 16px;
-}
+}*//*
 .app {
   max-width: 1300px;
   margin-left: auto;
@@ -22,7 +22,7 @@ body {
 .feed__widget__wrapper {
   display: flex;
 }
-
+*/
 
 @media (max-width: 895px) {
   .app {

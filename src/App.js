@@ -1,17 +1,19 @@
 import React from 'react';
+import {BrowserRouter as Router, Route, Switch, Link} from 'react-router-dom'; 
 import './App.css';
-import Sidebar from './components/Sidebar/Sidebar';
-import Feed from './components/Feed/Feed';
-import Widgets from './components/Widgets/Widgets';
+import LandingPage from './components/LandingPage/LandingPage';
+import Home from './components/Home/Home';
+
 
 function App() {
   return (
     <div className="app">
-      <Sidebar className="sidebar" />
-      <div className="feed__widget__wrapper">
-        <Feed className="feed"/>
-        <Widgets className="widgets" />
-      </div>
+      <Router>
+        <Switch>
+          <Route exact path="/" component={LandingPage} />
+          <Route exact path="/home" component={Home} />
+        </Switch>
+      </Router>
     </div>
   );
 }
