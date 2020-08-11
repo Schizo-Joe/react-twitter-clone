@@ -1,0 +1,63 @@
+.signUp {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 20px;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    background-color: white;
+    box-shadow: 10px 10px 50px #00000057,
+    -10px -10px 50px #00000057,
+    10px -10px 50px #00000057,
+    -10px 10px 50px #00000057;
+    border: 2px solid var(--twitter-blue);
+}
+.icon__submit {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 20px;
+}
+.favIcon {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%,0);
+    width: 40px ;
+}
+.closeButton {
+    font-size: 40px !important;
+    color: var(--twitter-blue);
+}
+.submit__button {
+    border: 2px solid var(--twitter-blue);
+    color: var(--twitter-blue);
+    background-color: white;
+    font-size: 18px;
+    padding: 10px;
+    border-radius: 30px;
+}
+.signUp > h2 {
+    margin: 40px 20px 20px 20px;
+}
+.signUp__form {
+    margin: 20px;
+    margin-bottom: 40px;
+}
+.one__input {
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0;
+}
+.signUp__form__label {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 10px 5px;
+}
+.signUp__form__input {
+    outline: none;
+    border-radius: 10px;
+    border: 0;
+    border-bottom: 1px solid black;
+    height: 40px;
+    
+}

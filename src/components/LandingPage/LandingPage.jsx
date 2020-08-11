@@ -1,13 +1,24 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './LandingPage.css';
 import FavIcon from './favicon240.png';
 import Login from '../Login/Login';
+import SignUp from '../SignUp/SignUp';
 import SearchIcon from '@material-ui/icons/Search';
 import PeopleAltOutlinedIcon from '@material-ui/icons/PeopleAltOutlined';
 import ChatBubbleOutlineOutlinedIcon from '@material-ui/icons/ChatBubbleOutlineOutlined';
 
 function LandingPage() {
+    const [loginComponentStatus, setLoginComponentSatus] = useState(false);
+
+    const [signUpComponentStatus, setSignUpComponentSatus] = useState(false);
+
+    const signUpComponentStatusHandler = () => {
+        signUpComponentStatus ? setSignUpComponentSatus(false) : setSignUpComponentSatus(true);
+    }
+
+
     return (
+        <div className="container">
         <div className="landing__page">
             <div className="left__banner">
                 <div className="banner__texts">
@@ -33,12 +44,14 @@ function LandingPage() {
                     <h2 className="tagline">the world right now</h2>
                     <div className="join__twitter">
                         <p>Join Twitter today.</p>
-                        <a className="signup__button" href="#">Sign up</a>
+                        <a onClick={signUpComponentStatusHandler} className="signup__button" href="#">Sign up</a>
                         <a className="login__button__main" href="">Log in</a>
                     </div>
                 </div>
             </div>
             
+        </div>
+        {signUpComponentStatus && <SignUp />}
         </div>
     )
 }
