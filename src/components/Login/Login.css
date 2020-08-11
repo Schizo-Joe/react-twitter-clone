@@ -50,3 +50,11 @@
     color: var(--twitter-blue);
     margin: 10px;
 }
+
+
+
+@media (max-width: 1136px) {
+   .login {
+       display: none;
+   }
+}
