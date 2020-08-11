@@ -1,33 +1,58 @@
-import React, { forwardRef } from 'react';
+import React, {useState} from 'react';
+import firebaseApp from '../../Firebase';
+import {useHistory} from 'react-router-dom';
 import './SignUp.css';
 import FavIcon from './favicon240.png';
 import HighlightOffIcon from '@material-ui/icons/HighlightOff';
 
 const SignUp = (props) => {
+    const db = firebaseApp.firestore();
+    const auth = firebaseApp.auth();
+
+    const history = useHistory();
+    
+    const [name, setName] = useState("");
+    const [userName, setUserName] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+
+    const signUpHandler =  event => {
+        event.preventDefault();
+        auth.createUserWithEmailAndPassword(email, password).then((auth) => {
+            history.push('/');
+        }).catch(e => alert(e.message));
+
+        db.collection('users').add({
+            displayName: name,
+            userName,
+            email
+        })
+
+    }
     return (
         <div className="signUp" >
             <div className="icon__submit">
                 <HighlightOffIcon onClick={props.activeStatusHandler} className="closeButton"/>
                 <img className="favIcon" src={FavIcon} alt=""/>
-                <p className="submit__button">Submit</p>
+                <p onClick={signUpHandler} className="submit__button">Submit</p>
             </div>
             <h2>Create your account</h2>
-            <form class="signUp__form" action="">
+            <form class="signUp__form">
                 <div className="one__input">
                     <label className="signUp__form__label" htmlFor="name__input">Name</label>
-                    <input name="name__input" className="signUp__form__input" type="text"/>
+                    <input value={name} onChange={e => setName(e.target.value)} name="name__input" className="signUp__form__input" type="text"/>
                 </div>
                 <div className="one__input">
                     <label className="signUp__form__label" htmlFor="userName__input">Username</label>
-                    <input name="userName__input" className="signUp__form__input" type="text"/>
+                    <input value={userName} onChange={e => setUserName(e.target.value)} name="userName__input" className="signUp__form__input" type="text"/>
                 </div>
                 <div className="one__input">
                     <label className="signUp__form__label" htmlFor="email__input">E-mail</label>
-                    <input name="email__input" className="signUp__form__input" type="text"/>
+                    <input value={email} onChange={(e)=> setEmail(e.target.value)} name="email__input" className="signUp__form__input" type="text"/>
                 </div>
                 <div className="one__input">
                     <label className="signUp__form__label" htmlFor="password__input">Password</label>
-                    <input name="password__input" className="signUp__form__input" type="text"/>
+                    <input value={password} onChange={(e)=> setPassword(e.target.value)} name="password__input" className="signUp__form__input" type="text"/>
                 </div>
                 
             </form>

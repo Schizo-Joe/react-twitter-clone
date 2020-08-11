@@ -23,7 +23,6 @@ function TweetBox() {
       postContent: tweetMessage,
       postMedia: imageUrl,
     });
-    console.log(imageUrl);
     setTweetMessage("");
     setImageUrl("");
     setImageUrlStatus(false);

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import './LandingPage.css';
 import FavIcon from './favicon240.png';
 import Login from '../Login/Login';
@@ -6,7 +6,6 @@ import SignUp from '../SignUp/SignUp';
 import SearchIcon from '@material-ui/icons/Search';
 import PeopleAltOutlinedIcon from '@material-ui/icons/PeopleAltOutlined';
 import ChatBubbleOutlineOutlinedIcon from '@material-ui/icons/ChatBubbleOutlineOutlined';
-import FlipMove from "react-flip-move";
 
 
 function LandingPage() {
