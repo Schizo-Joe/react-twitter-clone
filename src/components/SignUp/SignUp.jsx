@@ -1,13 +1,13 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import './SignUp.css';
 import FavIcon from './favicon240.png';
 import HighlightOffIcon from '@material-ui/icons/HighlightOff';
 
-function SignUp() {
+const SignUp = (props) => {
     return (
-        <div className="signUp">
+        <div className="signUp" >
             <div className="icon__submit">
-                <HighlightOffIcon className="closeButton"/>
+                <HighlightOffIcon onClick={props.activeStatusHandler} className="closeButton"/>
                 <img className="favIcon" src={FavIcon} alt=""/>
                 <p className="submit__button">Submit</p>
             </div>
@@ -33,6 +33,6 @@ function SignUp() {
             </form>
         </div>
     )
-}
+};
 
 export default SignUp;

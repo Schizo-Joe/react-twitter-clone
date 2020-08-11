@@ -11,6 +11,8 @@
     10px -10px 50px #00000057,
     -10px 10px 50px #00000057;
     border: 2px solid var(--twitter-blue);
+    animation: popIn .1s ease-in;
+
 }
 .icon__submit {
     display: flex;
@@ -54,10 +56,34 @@
     margin: 10px 5px;
 }
 .signUp__form__input {
+    background-color: white;
+    font-size: 20px;
     outline: none;
-    border-radius: 10px;
+    border-radius: 5px;
     border: 0;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid #8F7C90;
     height: 40px;
     
+}
+
+@media (max-width: 690px) {
+    .signUp {
+        width: 350px;
+    }
+}
+
+
+
+
+@keyframes popIn {
+    0% {
+        transform: translateX(0.5);
+        transform: translateY(0.5);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(1);
+        transform: translateY(1);
+        opacity: 1;
+    }
 }

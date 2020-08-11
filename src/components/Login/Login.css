@@ -1,38 +1,65 @@
-.login {
-    margin: 0 auto;
-    background-color: white;
+.login__comp {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 20px;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    background-color: white;
+    box-shadow: 10px 10px 50px #00000057,
+    -10px -10px 50px #00000057,
+    10px -10px 50px #00000057,
+    -10px 10px 50px #00000057;
+    border: 2px solid var(--twitter-blue);
+    animation: popIn .1s ease-in;
+
 }
-.login__form {
+.icon__close {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 20px;
+}
+.login__favIcon {
+    width: 40px ;
+}
+.closeButton {
+    font-size: 40px !important;
+    color: var(--twitter-blue);
+}
+
+.login__comp__form {
     margin: 20px;
     display: flex;
-    align-items: flex-start;
+    flex-direction: column;
+    align-items: center;
 }
 .user__name__form {
+    width: 100%;
     margin: 10px;
     display: flex;
     flex-direction: column;
 }
 .user__password__form {
+    width: 100%;
     margin: 10px;
     display: flex;
     flex-direction: column;
 }
-.input__label {
+.main__input__label {
     padding-left: 5px;
-    color: #8F7C90;
+    color: black;
 }
-.login__input {
-    width: 100%;
+.main__login__input {
+    background-color: white;
     font-size: 20px;
     outline: none;
-    border-top: 0;
-    border-left: 0;
-    border-right: 0;
-    border-bottom: 2px solid black;
-    margin: 10px 0;
+    border-radius: 5px;
+    border: 0;
+    border-bottom: 1px solid #8F7C90;
+    height: 40px;
 }
 .forgot__link {
     padding-left: 5px;
@@ -40,14 +67,15 @@
     font-size: 12px;
     color: var(--twitter-blue)
 }
-.login__button {
+.main__login__button {
+    width: 100px;
+    text-align: center;
     font-weight: 800;
     text-decoration: none;
-    background-color: white;
-    border: 2px solid var(--twitter-blue);
+    background-color: var(--twitter-blue);
+    color: white;
     border-radius: 20px;
     padding: 10px 15px;
-    color: var(--twitter-blue);
     margin: 10px;
 }
 
@@ -57,4 +85,23 @@
    .login {
        display: none;
    }
+}
+
+@media (max-width: 690px) {
+    .login__comp {
+        width: 350px;
+    }
+}
+
+@keyframes popIn {
+    0% {
+        transform: translateX(0.5);
+        transform: translateY(0.5);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(1);
+        transform: translateY(1);
+        opacity: 1;
+    }
 }

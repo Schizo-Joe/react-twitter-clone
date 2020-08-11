@@ -6,14 +6,31 @@ import SignUp from '../SignUp/SignUp';
 import SearchIcon from '@material-ui/icons/Search';
 import PeopleAltOutlinedIcon from '@material-ui/icons/PeopleAltOutlined';
 import ChatBubbleOutlineOutlinedIcon from '@material-ui/icons/ChatBubbleOutlineOutlined';
+import FlipMove from "react-flip-move";
+
 
 function LandingPage() {
-    const [loginComponentStatus, setLoginComponentSatus] = useState(false);
 
-    const [signUpComponentStatus, setSignUpComponentSatus] = useState(false);
+    const [userName, setUserName] = useState();
+    const [passWord, setPassWord] = useState();
+
+    const [loginComponentStatus, setLoginComponentStatus] = useState(false);
+
+    const [signUpComponentStatus, setSignUpComponentStatus] = useState(false);
 
     const signUpComponentStatusHandler = () => {
-        signUpComponentStatus ? setSignUpComponentSatus(false) : setSignUpComponentSatus(true);
+        if(signUpComponentStatus) {
+            setSignUpComponentStatus(false);
+        } else{
+            setSignUpComponentStatus(true);
+        }
+    }
+    const loginComponentStatusHandler = () => {
+        if(loginComponentStatus) {
+            setLoginComponentStatus(false); 
+        } else{
+            setLoginComponentStatus(true);       
+        }
     }
 
 
@@ -37,7 +54,20 @@ function LandingPage() {
                 </div>
             </div>
             <div className="right__forms">
-                <Login />
+            <div className="login">
+                <form className="login__form" action="">
+                <div className="user__name__form">
+                    <label class="input__label" htmlFor="username">Phone, email or username</label>
+                    <input className="login__input" type="text" name="username" value={userName} onChange={e => setUserName(e.target.value)}/>
+                </div>
+                <div className="user__password__form">
+                    <label class="input__label" htmlFor="password">Password</label>
+                    <input className="login__input" type="text" name="password" value={passWord} onChange={e => setPassWord(e.target.value)} />
+                    <a className="forgot__link" href="#">Forgot password?</a>
+                </div>
+                <a href="#" className="login__button">Login</a>
+                </form>
+            </div>
                 <div className="tagline__contents">
                     <img class="fav__icon" src={FavIcon} alt=""/>
                     <h2 className="tagline">See what's happening in</h2>
@@ -45,13 +75,14 @@ function LandingPage() {
                     <div className="join__twitter">
                         <p>Join Twitter today.</p>
                         <a onClick={signUpComponentStatusHandler} className="signup__button" href="#">Sign up</a>
-                        <a className="login__button__main" href="">Log in</a>
+                        <a onClick={loginComponentStatusHandler} className="login__button__main" href="#">Log in</a>
                     </div>
                 </div>
             </div>
             
         </div>
-        {signUpComponentStatus && <SignUp />}
+            {signUpComponentStatus && <SignUp activeStatusHandler={signUpComponentStatusHandler} />}
+            {loginComponentStatus && <Login activeStatusHandler={loginComponentStatusHandler} />}
         </div>
     )
 }
