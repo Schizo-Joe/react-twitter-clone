@@ -1,4 +1,4 @@
-import React, {useState, useContext} from 'react';
+import React, {useState, useContext, useEffect} from 'react';
 import './LandingPage.css';
 import FavIcon from './favicon240.png';
 import Login from '../Login/Login';
@@ -6,6 +6,8 @@ import SignUp from '../SignUp/SignUp';
 import SearchIcon from '@material-ui/icons/Search';
 import PeopleAltOutlinedIcon from '@material-ui/icons/PeopleAltOutlined';
 import ChatBubbleOutlineOutlinedIcon from '@material-ui/icons/ChatBubbleOutlineOutlined';
+import firebaseApp from '../../Firebase';
+import {AuthContext} from '../../UserAuth';
 
 
 function LandingPage() {
@@ -31,6 +33,22 @@ function LandingPage() {
             setLoginComponentStatus(true);       
         }
     }
+
+
+
+    // const [currentUser, setCurrentUser] = useContext(AuthContext);
+    // useEffect(() => {
+    //   const unsubscribe = firebaseApp.auth().onAuthStateChanged((authUser) => {
+    //       if(authUser) {
+    //           setCurrentUser(authUser);
+    //       } else {
+    //           setCurrentUser(null);
+    //       }
+    //   })
+  
+    //   return (unsubscribe());
+    // }, []);
+  
 
 
     return (

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import {withRouter, Redirect} from 'react-router';
 import {useHistory} from 'react-router-dom';
 import firebaseApp from '../../Firebase';
@@ -9,6 +9,8 @@ import HighlightOffIcon from '@material-ui/icons/HighlightOff';
 
 
 const Login = (props) => {
+    const [currentUser, setCurrentUser] = useContext(AuthContext);
+
     const history = useHistory();
     const auth = firebaseApp.auth();
     const [email, setEmail] = useState("");

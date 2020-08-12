@@ -10,8 +10,14 @@ function Feed() {
   const db = firebaseApp.firestore();
   const [posts, setPosts] = useState([]);
 
+  // useEffect(() => {
+  //   db.collection("posts").onSnapshot((snapshot) =>
+  //     setPosts(snapshot.docs.map((doc) => doc.data()))
+  //   );
+  // }, []);
+
   useEffect(() => {
-    db.collection("posts").onSnapshot((snapshot) =>
+    db.collection("posts").orderBy("time", "desc").onSnapshot((snapshot) =>
       setPosts(snapshot.docs.map((doc) => doc.data()))
     );
   }, []);

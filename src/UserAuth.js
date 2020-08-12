@@ -4,10 +4,11 @@ import firebaseApp from './Firebase';
 export const AuthContext = createContext();
 
 export const AuthProvider = ({children}) => {
+    const auth = firebaseApp.auth();
     const [currentUser, setCurrentUser] = useState(null);
 
     useEffect(() => {
-        const unsubscribe = firebaseApp.auth().onAuthStateChanged((authUser) => {
+        const unsubscribe = auth.onAuthStateChanged((authUser) => {
             if(authUser) {
                 setCurrentUser(authUser);
             } else {
@@ -15,11 +16,11 @@ export const AuthProvider = ({children}) => {
             }
         })
 
-        return (unsubscribe());
+        return (unsubscribe);
     }, []);
 
     return (
-        <AuthContext.Provider value={{currentUser}}>
+        <AuthContext.Provider value={[currentUser, setCurrentUser]}>
             {children}
         </AuthContext.Provider>
     )

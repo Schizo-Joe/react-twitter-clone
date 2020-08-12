@@ -3,8 +3,10 @@ import './Bookmarks.css';
 
 function Bookmarks() {
     return (
-        <div className="bookmarks">
-            <h2>Bookmarks</h2>
+        <div className="bookmarksPage">
+            <div className="bookmarksPage__title">
+                <h2 className="bookmarksPage__titleText">Bookmarks</h2>
+            </div>
         </div>
     )
 }

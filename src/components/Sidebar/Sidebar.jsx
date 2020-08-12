@@ -12,8 +12,15 @@ import PermIdentityIcon from '@material-ui/icons/PermIdentity';
 import MoreIcon from '@material-ui/icons/More';
 import AddTweet from './tweet.png';
 import {Link, BrowserRouter as Router, Switch, NavLink} from 'react-router-dom';
+import firebaseApp from '../../Firebase';
+
 
 function Sidebar() {
+    const auth = firebaseApp.auth();
+    const signOutHandler = () => {
+        auth.signOut();
+    }
+
     return (
         <div className="sidebar">
             <TwitterIconComponent />
@@ -41,6 +48,8 @@ function Sidebar() {
             <SidebarItems classRef="more" class="more__icon" name="More" icon={MoreIcon} />
             <a href="#" className="tweet__button" >Tweet</a>
             <img className="add__tweet__img" src={AddTweet} alt=""/>
+
+            <button onClick={signOutHandler}>SignOut</button>
         </div>
     )
 }

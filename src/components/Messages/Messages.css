@@ -1,9 +1,36 @@
-.messages {
-    background-color: green;
+.messagesPage {
     width: 60%;
     height: 100vh;
-    overflow: scroll;
+    /* overflow: scroll;
     -ms-overflow-style: none; 
-    scrollbar-width: none;
+    scrollbar-width: none; */
     position: relative;
 }
+.messagesPage__title {
+    height: fit-content;
+    border-bottom: 2px solid var(--twitter-selection-background);
+}
+.messagesPage__titleText {
+    margin: 10px 15px;
+    font-size: 20px;
+
+}
+
+
+
+
+
+@media (max-width: 895px) {
+    .notificationsPage {
+        width: 100%;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+}
+@media (max-width: 605px) {
+    .notificationsPage {
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+    }
+} 

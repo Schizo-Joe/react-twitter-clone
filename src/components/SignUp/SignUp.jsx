@@ -11,6 +11,8 @@ const SignUp = (props) => {
 
     const history = useHistory();
     
+    const [createAccountStatus, setCreateAccountStatus] = useState(false);
+
     const [name, setName] = useState("");
     const [userName, setUserName] = useState("");
     const [email, setEmail] = useState("");
@@ -19,7 +21,12 @@ const SignUp = (props) => {
     const signUpHandler =  event => {
         event.preventDefault();
         auth.createUserWithEmailAndPassword(email, password).then((auth) => {
-            history.push('/');
+            // history.push('/');
+            setCreateAccountStatus(true);
+            setName("");
+            setUserName("");
+            setEmail("");
+            setPassword("");
         }).catch(e => alert(e.message));
 
         db.collection('users').add({
@@ -54,7 +61,7 @@ const SignUp = (props) => {
                     <label className="signUp__form__label" htmlFor="password__input">Password</label>
                     <input value={password} onChange={(e)=> setPassword(e.target.value)} name="password__input" className="signUp__form__input" type="text"/>
                 </div>
-                
+                { createAccountStatus && <p className="accountCreatedStatus">Account created successfully. Please Login.</p>}
             </form>
         </div>
     )

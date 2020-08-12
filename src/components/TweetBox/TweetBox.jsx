@@ -20,6 +20,7 @@ function TweetBox() {
       displayName: "Cristiano Ronaldo",
       userName: "cristiano",
       verified: true,
+      time: Date().toLocaleString(),
       postContent: tweetMessage,
       postMedia: imageUrl,
     });

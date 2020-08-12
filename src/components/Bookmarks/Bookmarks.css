@@ -1,9 +1,36 @@
-.bookmarks {
-    background-color: yellow;
+.bookmarksPage {
     width: 60%;
     height: 100vh;
-    overflow: scroll;
+    /* overflow: scroll;
     -ms-overflow-style: none; 
-    scrollbar-width: none;
+    scrollbar-width: none; */
     position: relative;
+}
+.bookmarksPage__title {
+    height: fit-content;
+    border-bottom: 2px solid var(--twitter-selection-background);
+}
+.bookmarksPage__titleText {
+    margin: 10px 15px;
+    font-size: 20px;
+
+}
+
+
+
+
+
+@media (max-width: 895px) {
+    .bookmarksPage {
+        width: 100%;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+}
+@media (max-width: 605px) {
+    .bookmarksPage {
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+    }
 }

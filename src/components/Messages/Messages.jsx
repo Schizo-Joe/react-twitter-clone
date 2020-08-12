@@ -3,8 +3,10 @@ import './Messages.css';
 
 function Messages() {
     return (
-        <div className="messages">
-            <h2>Messages</h2>
+        <div className="messagesPage">
+            <div className="messagesPage__title">
+                <h2 className="messagesPage__titleText">Messages</h2>
+            </div>
         </div>
     )
 }
