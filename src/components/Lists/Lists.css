@@ -1,0 +1,9 @@
+.lists__page {
+    background-color: red;
+    width: 60%;
+    height: 100vh;
+    overflow: scroll;
+    -ms-overflow-style: none; 
+    scrollbar-width: none;
+    position: relative;
+}

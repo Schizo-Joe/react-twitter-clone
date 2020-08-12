@@ -1,0 +1,9 @@
+.explore {
+    background-color: blue;
+    width: 60%;
+    height: 100vh;
+    overflow: scroll;
+    -ms-overflow-style: none; 
+    scrollbar-width: none;
+    position: relative;
+}

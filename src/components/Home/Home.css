@@ -21,6 +21,7 @@
   }
   .feed__widget__wrapper {
     display: flex;
+    flex-grow: 1;
   }
   
   
