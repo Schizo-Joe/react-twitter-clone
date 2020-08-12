@@ -9,7 +9,9 @@ import HighlightOffIcon from '@material-ui/icons/HighlightOff';
 
 
 const Login = (props) => {
+    const db = firebaseApp.firestore();
     const [currentUser, setCurrentUser] = useContext(AuthContext);
+    const [currentUserDetails, setCurrentUserDetails] = useContext(AuthContext);
 
     const history = useHistory();
     const auth = firebaseApp.auth();
@@ -19,9 +21,28 @@ const Login = (props) => {
     const loginHandler = e => {
         e.preventDefault();
         auth.signInWithEmailAndPassword(email, passWord).then((auth) => {
+            db.collection("users").where('userName','==','arjunarjun').get().then(function(querySnapshot) {
+                querySnapshot.forEach(function(doc) {
+                    // doc.data() is never undefined for query doc snapshots
+                    setCurrentUserDetails(doc.data());
+                });
+                console.log(currentUserDetails);
+            });
+                // (querySnapshot) =>
+                // // setCurrentUserDetails(snapshot.docs.map((doc) => doc.data()))
+                // setCurrentUserDetails(querySnapshot.docs.map((doc) => doc.data()))
+            
+            // var query = db.collection("users").where('userName','==','arjunarjun');
+            // console.log(query);
             history.push("/");
+
         }).catch(e => alert(e.message))
     }
+
+    if (currentUser) {
+        return <Redirect to="/" />;
+    }
+    
     return (
         <div className="login__comp">
              <div className="icon__close">

@@ -13,6 +13,7 @@
 
 # firebase
 /src/Firebase.js
+/.firebase
 
 # misc
 .DS_Store

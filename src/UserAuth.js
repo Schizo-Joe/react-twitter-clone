@@ -6,6 +6,7 @@ export const AuthContext = createContext();
 export const AuthProvider = ({children}) => {
     const auth = firebaseApp.auth();
     const [currentUser, setCurrentUser] = useState(null);
+    const [currentUserDetails, setCurrentUserDetails] = useState([]);
 
     useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged((authUser) => {
@@ -20,7 +21,7 @@ export const AuthProvider = ({children}) => {
     }, []);
 
     return (
-        <AuthContext.Provider value={[currentUser, setCurrentUser]}>
+        <AuthContext.Provider value={[currentUser, setCurrentUser], [currentUserDetails, setCurrentUserDetails]}>
             {children}
         </AuthContext.Provider>
     )
