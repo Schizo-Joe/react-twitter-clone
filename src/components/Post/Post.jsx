@@ -1,6 +1,11 @@
 import React, { forwardRef } from "react";
 import "./Post.css";
 import VerifiedUserIcon from "@material-ui/icons/VerifiedUser";
+import ChatBubbleOutlineOutlinedIcon from '@material-ui/icons/ChatBubbleOutlineOutlined';
+import RepeatOutlinedIcon from '@material-ui/icons/RepeatOutlined';
+import FavoriteBorderOutlinedIcon from '@material-ui/icons/FavoriteBorderOutlined';
+import PresentToAllOutlinedIcon from '@material-ui/icons/PresentToAllOutlined';
+
 
 const Post = forwardRef((props, ref) => {
   return (
@@ -21,7 +26,23 @@ const Post = forwardRef((props, ref) => {
         <div className="post__content__media">
           <img src={props.postMedia} alt="" />
         </div>
-        <div className="post__contents__reactions"></div>
+        <div className="post__contents__reactions">
+            <div className="reaction__comment">
+              <ChatBubbleOutlineOutlinedIcon />
+              <p>10</p>
+            </div>
+            <div className="reaction__retweet">
+              <RepeatOutlinedIcon />
+              <p>10</p>
+            </div>
+            <div className="reaction__like">
+              <FavoriteBorderOutlinedIcon />
+              <p>10</p>
+            </div>
+            <div className="reaction__share">
+              <PresentToAllOutlinedIcon />
+            </div>
+        </div>
       </div>
     </div>
   );

@@ -1,10 +1,22 @@
-.sidebar {
+.sidebar__wrapper {
     position: sticky;
     top: 0;
     width: 20%;
     min-width: 200px;
     height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     border-right: 2px solid var(--twitter-selection-background);
+    position: relative;
+}
+.sidebar {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    min-width: 200px;
+    
+    position: relative;
 }
 .twitter__icon {
     font-size: 60px;
@@ -30,9 +42,61 @@
 .para__sidebar {
     display: none;
 }
+
+.sidebar__profileControl {
+    margin-bottom: 10px;
+}
+.profileControl__logoutButton {
+    margin: 15px;
+    color: black;
+    background-color: var(--twitter-selection-background);
+    padding: 10px;
+    border-radius: 30px;
+    text-align: center;
+}
+.sidebar__profileControl__imageDiv {
+    display: flex;
+    align-items: center;
+}
+.sidebar__profileControl__image {
+    height: 50px;
+    width: 50px;
+    border-radius: 999px;
+    margin: 10px;
+}
+.profileControl__names {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 10px 10px 10px 0;
+}
+.profileControl__name {
+    margin-bottom: 10px;
+    font-size: 16px;
+    font-weight: 600;
+}
+.profileControl__userName {
+    color: #858585;
+}
+.profileControl__moreIcon {
+    color: black;
+    background-color: lightblue;
+    border-radius: 20px;
+}
+
+
+
+
 @media (max-width: 1090px) {
+    .sidebar__wrapper {
+        width: fit-content;
+        min-width: fit-content;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
     .sidebar {
-        width: auto;
+        width: fit-content;
         min-width: fit-content;
         display: flex;
         flex-direction: column;
@@ -49,14 +113,23 @@
         margin: 15px 10px;
         
     }
+    .profileControl__names {
+        display: none;
+    }
+    .sidebar__profileControl {
+        width: fit-content;
+    }
     
 }
 
 @media (max-width: 895px) {
     .sidebar {
+        width: 100%;
         display: flex;
         justify-content: space-around;
         flex-direction: row;
+    }
+    .sidebar__wrapper {
         position: sticky;
         bottom: 0;
         background-color: white;
@@ -74,8 +147,8 @@
     .add__tweet__img {
         display: none;
     }
+    .sidebar__profileControl {
+        display: none;
+    }
 }
 
-@media (max-width: 895px) {
-
-}

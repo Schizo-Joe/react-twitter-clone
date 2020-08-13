@@ -1,7 +1,7 @@
 .post {
     display: flex;
-    margin: 10px 15px;
-    border-bottom: 2px solid var(--twitter-background-selection);
+    padding: 10px 15px;
+    border-bottom: 2px solid var(--twitter-selection-background);
 }
 .post__avatar {
     margin-right: 15px;
@@ -35,4 +35,36 @@
 .post__content__media > img {
     border-radius: 12px;
     width: 100%;
+}
+.post__contents__reactions {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+
+}
+.reaction__comment,
+.reaction__retweet,
+.reaction__like,
+.reaction__share {
+    display: flex;
+    align-items: center;
+    color: gray;
+    padding: 5px 10px;
+    border-radius: 30px;
+}
+.reaction__comment:hover {
+    color: #0062D1;
+    background-color: #B8EFFF;
+}
+.reaction__retweet:hover {
+    color: #00BD1D;
+    background-color: #B8FFC4;
+}
+.reaction__like:hover {
+    color: red;
+    background-color: #FBC2C0;
+}
+.reaction__share:hover {
+    color: #0062D1;
+    background-color: #B8EFFF;
 }
