@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import './Sidebar.css';
 import TwitterIconComponent from '../TwitterIcon/TwitterIcon';
 import SidebarItems from '../SidebarItems/SidebarItems';
@@ -13,6 +13,7 @@ import MoreIcon from '@material-ui/icons/More';
 import AddTweet from './tweet.png';
 import {Link, BrowserRouter as Router, Switch, NavLink} from 'react-router-dom';
 import firebaseApp from '../../Firebase';
+import { CurrentUserDetailsContext } from '../../CurrentUserDetailsProvider';
 
 
 function Sidebar() {
@@ -20,7 +21,6 @@ function Sidebar() {
     const signOutHandler = () => {
         auth.signOut();
     }
-
     return (
         <div className="sidebar">
             <TwitterIconComponent />

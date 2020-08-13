@@ -32,7 +32,7 @@ function Feed() {
         {posts.map((post) => (
           <Post
             key={post.postContent}
-            avatar={AccountCircleIcon}
+            avatar={post.postAvatar}
             displayName={post.displayName}
             verified={post.verified}
             userName={post.userName}

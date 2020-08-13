@@ -1,4 +1,5 @@
 import React, {useState, useContext, useEffect} from 'react';
+import { Redirect } from "react-router";
 import './LandingPage.css';
 import FavIcon from './favicon240.png';
 import Login from '../Login/Login';
@@ -11,6 +12,8 @@ import {AuthContext} from '../../UserAuth';
 
 
 function LandingPage() {
+
+    const [currentUser, setCurrentUser] = useContext(AuthContext);
 
     const [userName, setUserName] = useState();
     const [passWord, setPassWord] = useState();
@@ -33,7 +36,10 @@ function LandingPage() {
             setLoginComponentStatus(true);       
         }
     }
-
+    if (currentUser) {
+        return <Redirect to="/" />;
+      }
+    
 
 
     // const [currentUser, setCurrentUser] = useContext(AuthContext);

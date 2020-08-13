@@ -5,7 +5,7 @@ import VerifiedUserIcon from "@material-ui/icons/VerifiedUser";
 const Post = forwardRef((props, ref) => {
   return (
     <div className="post" ref={ref}>
-      <props.avatar className="post__avatar" style={{ fontSize: 55 }} />
+      <img src={props.avatar} className="post__avatar" style={{ fontSize: 55 }} />
       <div className="post__contents">
         <div className="post__contents__names">
           <p class="account__name">{props.displayName}</p>

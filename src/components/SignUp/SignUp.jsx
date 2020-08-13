@@ -32,7 +32,8 @@ const SignUp = (props) => {
         db.collection('users').add({
             displayName: name,
             userName,
-            email
+            email,
+            verified: false,
         })
 
     }
