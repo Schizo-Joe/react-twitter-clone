@@ -6,6 +6,7 @@
     height: 100vh;
     display: flex;
     flex-direction: column;
+    align-items: center;
     justify-content: space-between;
     border-right: 2px solid var(--twitter-selection-background);
     position: relative;
@@ -57,6 +58,11 @@
 .sidebar__profileControl__imageDiv {
     display: flex;
     align-items: center;
+    justify-content: space-between;
+}
+.icon__names {
+    display: flex;
+    align-items: center;
 }
 .sidebar__profileControl__image {
     height: 50px;
@@ -82,6 +88,9 @@
     color: black;
     background-color: lightblue;
     border-radius: 20px;
+}
+.profileControl__dummyIcon {
+    font-size: 50px !important;
 }
 
 

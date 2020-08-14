@@ -36,9 +36,9 @@ function LandingPage() {
             setLoginComponentStatus(true);       
         }
     }
-    if (currentUser) {
-        return <Redirect to="/" />;
-      }
+    // if (currentUser) {
+    //     return <Redirect to="/" />;
+    //   }
     
 
 

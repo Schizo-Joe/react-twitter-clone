@@ -1,0 +1,32 @@
+.profileMenuPage {
+    width: 60%;
+    height: 100vh;
+    position: relative;
+}
+.profileMenuPage__title {
+    height: fit-content;
+    border-bottom: 2px solid var(--twitter-selection-background);
+}
+.profileMenuPage__titleText {
+    margin: 10px 15px;
+    font-size: 20px;
+
+}
+
+
+
+
+@media (max-width: 895px) {
+    .profileMenuPage {
+        width: 100%;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+}
+@media (max-width: 605px) {
+    .profileMenuPage {
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+    }
+} 

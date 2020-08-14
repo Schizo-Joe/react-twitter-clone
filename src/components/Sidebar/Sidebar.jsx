@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext, useState, useEffect} from 'react';
 import './Sidebar.css';
 import TwitterIconComponent from '../TwitterIcon/TwitterIcon';
 import SidebarItems from '../SidebarItems/SidebarItems';
@@ -15,17 +15,29 @@ import {Link, BrowserRouter as Router, Switch, NavLink} from 'react-router-dom';
 import firebaseApp from '../../Firebase';
 import { CurrentUserDetailsContext } from '../../CurrentUserDetailsProvider';
 import MoreVertOutlinedIcon from '@material-ui/icons/MoreVertOutlined';
+import AccountCircleIcon from "@material-ui/icons/AccountCircle";
+
 
 
 function Sidebar() {
     const [currentUserDetails, setCurrentUserDetails] = useContext(
         CurrentUserDetailsContext
       );
+      const [userImageStatus, setUserImageStatus] = useState(true);
+
+     useEffect(() => {
+        if(currentUserDetails.profileImage) {
+            setUserImageStatus(true);
+        } else {
+            setUserImageStatus(false);
+        }
+     },[])
     const [signOutButtonStatus, setSignOutButtonStatus] = useState(false);
     const auth = firebaseApp.auth();
 
     const signOutButtonHandler = () => {
-        setSignOutButtonStatus((signOutButtonStatus)? false: true)
+        console.log(currentUserDetails);
+        setSignOutButtonStatus((signOutButtonStatus)? false: true);
     }
 
     const signOutHandler = () => {
@@ -59,16 +71,17 @@ function Sidebar() {
                 <SidebarItems classRef="more" class="more__icon" name="More" icon={MoreIcon} />
                 <a href="#" className="tweet__button" >Tweet</a>
                 <img className="add__tweet__img" src={AddTweet} alt=""/>
-
-                
             </div>
                 <div className="sidebar__profileControl">
-                    {signOutButtonStatus &&<p className="profileControl__logoutButton" onClick={signOutHandler}>Logout</p>}
+                    {signOutButtonStatus && <p className="profileControl__logoutButton" onClick={signOutHandler}>Logout</p>}
                     <div className="sidebar__profileControl__imageDiv">
-                        <img className="sidebar__profileControl__image" src="https://thumbor.forbes.com/thumbor/fit-in/416x416/filters%3Aformat%28jpg%29/https%3A%2F%2Fspecials-images.forbesimg.com%2Fimageserve%2F5ec593cc431fb70007482137%2F0x0.jpg%3Fbackground%3D000000%26cropX1%3D1321%26cropX2%3D3300%26cropY1%3D114%26cropY2%3D2093" alt=""/>
+                        <div className="icon__names">
+                        {(!userImageStatus)&&<AccountCircleIcon className="profileControl__dummyIcon" />}
+                        {userImageStatus &&<img className="sidebar__profileControl__image" src={currentUserDetails.profileImage} alt=""/>}
                         <div className="profileControl__names">
-                            <p className="profileControl__name">Cristiano Ronaldo</p>
-                            <p className="profileControl__userName">@cristiano</p>
+                            <p onClick={()=> console.log(currentUserDetails)} className="profileControl__name">{currentUserDetails.name}</p>
+                            <p className="profileControl__userName">@{currentUserDetails.userName}</p>
+                        </div>
                         </div>
                         <MoreVertOutlinedIcon onClick={signOutButtonHandler} className="profileControl__moreIcon"/>
                     </div>

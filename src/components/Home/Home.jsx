@@ -9,7 +9,7 @@ import Messages from '../Messages/Messages';
 import Bookmarks from '../Bookmarks/Bookmarks';
 import Lists from '../Lists/Lists';
 import Profile from '../Profile/Profile';
-
+import ProfileMenu from '../ProfileMenu/ProfileMenu';
 import Widgets from '../Widgets/Widgets';
 
 function Home() {
@@ -25,6 +25,7 @@ function Home() {
                 <Route exact path="/bookmarks" component={Bookmarks} />
                 <Route exact path="/lists" component={Lists} />
                 <Route exact path="/profile" component={Profile} />
+                <Route exact path="/profile-menu" component={ProfileMenu} />
 
 
               </Switch>

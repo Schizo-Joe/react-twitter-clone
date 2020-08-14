@@ -27,15 +27,16 @@ const SignUp = (props) => {
             setUserName("");
             setEmail("");
             setPassword("");
+            db.collection('users').add({
+                displayName: name,
+                userName,
+                email,
+                verified: false,
+                profileImage: ""
+            });
+            
         }).catch(e => alert(e.message));
-
-        db.collection('users').add({
-            displayName: name,
-            userName,
-            email,
-            verified: false,
-        })
-
+        auth.signOut();
     }
     return (
         <div className="signUp" >
