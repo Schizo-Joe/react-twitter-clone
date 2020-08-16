@@ -1,36 +1,61 @@
 .messagesPage {
-    width: 60%;
-    height: 100vh;
-    /* overflow: scroll;
+  width: 60%;
+  height: 100vh;
+  /* overflow: scroll;
     -ms-overflow-style: none; 
     scrollbar-width: none; */
-    position: relative;
+  position: relative;
 }
 .messagesPage__title {
-    height: fit-content;
-    border-bottom: 2px solid var(--twitter-selection-background);
+  height: fit-content;
+  border-bottom: 2px solid var(--twitter-selection-background);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 .messagesPage__titleText {
-    margin: 10px 15px;
-    font-size: 20px;
-
+  margin: 10px 15px;
+  font-size: 20px;
 }
-
-
-
-
+.messagePage__newMessageIcon {
+  margin: 10px;
+  font-size: 30px !important;
+  color: var(--twitter-blue);
+}
+.messagePage__searchBar {
+  display: flex;
+  align-items: center;
+  margin: 10px;
+  width: calc(100% - 20px);
+  outline: none;
+  font-size: 18px;
+  border: none;
+  height: 30px;
+  background-color: #e5ebef;
+  border-radius: 20px;
+}
+.messagePage__searchIcon {
+  margin: 5px;
+}
+.messagePage__searchBox {
+  outline: none;
+  font-size: 18px;
+  border: none;
+  height: 30px;
+  background-color: #e5ebef;
+}
 
 @media (max-width: 895px) {
-    .notificationsPage {
-        width: 100%;
-        margin-left: 20px;
-        margin-right: 20px;
-    }
+  .notificationsPage {
+    width: 100%;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
 }
 @media (max-width: 605px) {
-    .notificationsPage {
-        width: 100%;
-        margin-left: 0;
-        margin-right: 0;
-    }
-} 
+  .notificationsPage {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}

@@ -32,7 +32,7 @@ export const AuthProvider = ({ children }) => {
             currentUserDetails.userName = userDetails.userName;
             currentUserDetails.verified = userDetails.verified;
             currentUserDetails.profileImage = userDetails.profileImage;
-          });
+          }).catch(e => alert(e.message));
 
         setCurrentUser(authUser);
       } else {
