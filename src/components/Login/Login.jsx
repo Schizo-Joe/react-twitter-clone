@@ -31,13 +31,14 @@ const Login = (props) => {
           .get()
           .then(function (querySnapshot) {
             querySnapshot.forEach(function (doc) {
-              userDetails = doc.data();
+              currentUserDetails.id = doc.id;
+              currentUserDetails.name = doc.data().displayName;
+              currentUserDetails.email = doc.data().email;
+              currentUserDetails.userName = doc.data().userName;
+              currentUserDetails.verified = doc.data().verified;
+              currentUserDetails.profileImage = doc.data().profileImage;
             });
-            currentUserDetails.name = userDetails.displayName;
-            currentUserDetails.email = userDetails.email;
-            currentUserDetails.userName = userDetails.userName;
-            currentUserDetails.verified = userDetails.verified;
-            currentUserDetails.profileImage = userDetails.profileImage;
+
             console.log(currentUserDetails);
             console.log(email);
           });

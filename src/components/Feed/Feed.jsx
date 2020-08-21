@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import "./Feed.css";
 import { Link } from "react-router-dom";
 import TweetBox from "../TweetBox/TweetBox";
@@ -6,23 +6,58 @@ import Post from "../Post/Post";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import firebaseApp from "../../Firebase";
 import FlipMove from "react-flip-move";
+import { CurrentUserDetailsContext } from "../../CurrentUserDetailsProvider";
 
 function Feed() {
   const db = firebaseApp.firestore();
-  const [posts, setPosts] = useState([]);
 
-  // useEffect(() => {
-  //   db.collection("posts").onSnapshot((snapshot) =>
-  //     setPosts(snapshot.docs.map((doc) => doc.data()))
-  //   );
-  // }, []);
+  const [currentUserDetails, setCurrentUserDetails] = useContext(
+    CurrentUserDetailsContext
+  );
+
+  const [posts, setPosts] = useState([]);
+  const [likes, setLikes] = useState([]);
+
+  const likesHandler = () => {
+    if (likes.includes({ postid: post.id })) {
+    } else {
+      db.collection("users")
+        .doc("1hDkBYeEBsGJfSWSwl4V")
+        .collection("likes")
+        .add({
+          postId: post.id,
+        });
+    }
+  };
+
+  const commentsHandler = () => {};
 
   useEffect(() => {
     db.collection("posts")
       .orderBy("time", "desc")
       .onSnapshot((snapshot) =>
-        setPosts(snapshot.docs.map((doc) => doc.data()))
+        setPosts(
+          snapshot.docs.map((doc) => {
+            return {
+              id: doc.id,
+              avatar: doc.data().postAvatar,
+              displayName: doc.data().displayName,
+              verified: doc.data().verified,
+              userName: doc.data().userName,
+              postContent: doc.data().postContent,
+              postMedia: doc.data().postMedia,
+              likesCount: doc.data().likesCount,
+              commentsCount: doc.data().commentsCount,
+            };
+          })
+        )
       );
+    db.collection("users")
+      .doc("1hDkBYeEBsGJfSWSwl4V")
+      .collection("likes")
+      .onSnapshot((snapshot) => {
+        setLikes(snapshot.docs.map((doc) => doc.data()));
+      });
   }, []);
 
   return (
@@ -39,17 +74,33 @@ function Feed() {
       </div>
       <TweetBox />
       <FlipMove>
-        {posts.map((post) => (
-          <Post
-            key={post.postContent}
-            avatar={post.postAvatar}
-            displayName={post.displayName}
-            verified={post.verified}
-            userName={post.userName}
-            postContent={post.postContent}
-            postMedia={post.postMedia}
-          />
-        ))}
+        {posts.map((post) => {
+          // var likeStatus = () => {
+          //   likes.map((like) => {
+          //     if(like.postId === post.key) {
+          //       return "active";
+          //     }
+          //   });
+          // };
+          return (
+            <Post
+              key={post.id}
+              id={post.id}
+              avatar={post.avatar}
+              displayName={post.displayName}
+              verified={post.verified}
+              userName={post.userName}
+              postContent={post.postContent}
+              postMedia={post.postMedia}
+              likesCount={post.likesCount}
+              commentsCount={post.commentsCount}
+              likesHandler={likesHandler()}
+              likes={likes}
+              likeStatus="active"
+              commentshandler={commentsHandler}
+            />
+          );
+        })}
       </FlipMove>
     </div>
   );

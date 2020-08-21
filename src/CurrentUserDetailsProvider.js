@@ -1,14 +1,22 @@
-import React, {useEffect, useState, createContext} from 'react';
+import React, { useEffect, useState, createContext } from "react";
 
 export const CurrentUserDetailsContext = createContext();
 
-export const CurrentUserDetailsProvider = ({children}) => {
+export const CurrentUserDetailsProvider = ({ children }) => {
+  const [currentUserDetails, setCurrentUserDetails] = useState({
+    id: "",
+    name: "",
+    email: "",
+    userName: "",
+    verified: false,
+    profileImage: "",
+  });
 
-    const [currentUserDetails, setCurrentUserDetails] = useState({name: "",email: "", userName: "", verified: false, profileImage: ""});
-
-    return (
-        <CurrentUserDetailsContext.Provider value={[currentUserDetails, setCurrentUserDetails]}>
-            {children}
-        </CurrentUserDetailsContext.Provider>
-    )
-}
+  return (
+    <CurrentUserDetailsContext.Provider
+      value={[currentUserDetails, setCurrentUserDetails]}
+    >
+      {children}
+    </CurrentUserDetailsContext.Provider>
+  );
+};

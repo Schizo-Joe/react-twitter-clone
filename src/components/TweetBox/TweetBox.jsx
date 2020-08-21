@@ -8,9 +8,7 @@ import ScheduleIcon from "@material-ui/icons/Schedule";
 import firebaseApp from "../../Firebase";
 import { CurrentUserDetailsContext } from "../../CurrentUserDetailsProvider";
 
-
 function TweetBox() {
-  
   const [currentUserDetails, setCurrentUserDetails] = useContext(
     CurrentUserDetailsContext
   );
@@ -18,7 +16,7 @@ function TweetBox() {
   const [imageUrlStatus, setImageUrlStatus] = useState(false);
   const imageUrlBoxhandler = () => {
     imageUrlStatus ? setImageUrlStatus(false) : setImageUrlStatus(true);
-  }
+  };
 
   const db = firebaseApp.firestore();
   const sendTweet = (e) => {
@@ -31,6 +29,8 @@ function TweetBox() {
       time: Date().toLocaleString(),
       postContent: tweetMessage,
       postMedia: imageUrl,
+      likesCount: 0,
+      commentsCount: 0,
     });
     setTweetMessage("");
     setImageUrl("");
@@ -38,12 +38,20 @@ function TweetBox() {
   };
 
   const [tweetMessage, setTweetMessage] = useState("");
-  const [imageUrl, setImageUrl] = useState("")
+  const [imageUrl, setImageUrl] = useState("");
 
   return (
     <div className="tweet__box">
-      {(currentUserDetails.profileImage)&& <img src={currentUserDetails.profileImage} alt="" className="TwwetBox__profilePic"/>}
-      {!(currentUserDetails.profileImage)&& < AccountCircleIcon style={{fontSize: 55}}/>}
+      {currentUserDetails.profileImage && (
+        <img
+          src={currentUserDetails.profileImage}
+          alt=""
+          className="TwwetBox__profilePic"
+        />
+      )}
+      {!currentUserDetails.profileImage && (
+        <AccountCircleIcon style={{ fontSize: 55 }} />
+      )}
       <div className="tweet__box__contents">
         <input
           type="text"
@@ -51,9 +59,15 @@ function TweetBox() {
           onChange={(e) => setTweetMessage(e.target.value)}
           value={tweetMessage}
         />
-        { imageUrlStatus &&
-          <input onChange={(e) => setImageUrl(e.target.value)} value={imageUrl} placeholder="Paste the image/GIF url here" className="image__media__input" type="text"/>
-        }
+        {imageUrlStatus && (
+          <input
+            onChange={(e) => setImageUrl(e.target.value)}
+            value={imageUrl}
+            placeholder="Paste the image/GIF url here"
+            className="image__media__input"
+            type="text"
+          />
+        )}
         <div className="tweet__box__attach">
           <div className="tweet__box__attach__items">
             <CropOriginalIcon
